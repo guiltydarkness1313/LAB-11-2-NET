@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CRUD_LAB11.Models.Employee>
+
+<p>
+    @Html.ActionLink("Create New", "AddEmployee")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditEmployee", new { id = item.id }) |
+            <!--@Html.ActionLink("Details", "EditEmployee", new { id = item.id }) |-->
+            @Html.ActionLink("Delete", "DeleteEmp", new { id = item.id },new { onclick="return confirm('Desea Eliminar el Empleado?');"})
+        </td>
+    </tr>
+}
+
+</table>
